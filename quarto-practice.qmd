@@ -1,0 +1,56 @@
+---
+title: "Day 5 Morning Session"
+author: "Liz Peterson"
+format: html
+execute:
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| message: false
+# load libraries ----
+library(tidyverse)
+```
+
+```{r}
+#| include: false
+# include lets you ignore this whole code chunk in the rendered version
+# data exploration using the 'dplyr::starwars' data frame ----
+head(starwars)
+tail(starwars)
+dim(starwars)
+```
+
+```{r}
+#| echo: false
+# echo being false will still execute the code, but not print it out in the rendered version
+ggplot(data = starwars, aes(x = height, y = mass, color = mass)) + 
+  geom_point() +
+  labs(x = "Height (cm)",
+       y = "Mass (kg)", 
+       title = "Starwars character height vs mass")
+```
+
+```{r}
+#| message: false
+#| fig-cap: "This is my figure caption"
+#| fig-alt: "This is some alt text"
+ggplot(data = starwars, aes(x=height)) +
+  geom_histogram(fill = "purple", color = "orange") +
+  labs(x = "Height (cm)",
+       y = "Count", 
+       title = "Starwars characters distribution of height")
+```
+
+```{r}
+# na.rm = TRUE means we will ignore NA's
+# the round(,digits = 3) makes it round to 3 decimal places
+sw_height_mean <- round(mean(starwars$height, na.rm = TRUE), digits = 3)
+```
+
+The mean height of all Starwars characters is `r sw_height_mean`
+
+
+

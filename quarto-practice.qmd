@@ -7,7 +7,7 @@ execute:
 editor_options: 
   chunk_output_type: console
 ---
-
+Hey Liz! I hope you are having the sunniest day ever!
 ```{r}
 #| message: false
 # load libraries ----
